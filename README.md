@@ -5,6 +5,7 @@ Add videos to the [videos folder](videos)
 `title` `speed`.mp4
 
 `title`: Title with spaces, is directly represented in the website title
+
 `speed`: for example 500 (lower numbers make the playback faster)
 
 ### Playback

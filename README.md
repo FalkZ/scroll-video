@@ -9,7 +9,7 @@ Add videos to the [videos folder](videos)
 
 ### Playback
 
-https://core-scroll.netlify.com/#`videoname`
+[https://core-scroll.netlify.com/#](https://core-scroll.netlify.com/#)`videoname`
 
 `videoname`: Name of video file without .mp4
 

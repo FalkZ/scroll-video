@@ -1,15 +1,18 @@
-# HTML5 Scroll Based Video Tutorial Project
+Add videos to the [videos folder](videos)
 
-This is the project based on the following tutorial:
-[Create an Awesome Scroll-based HTML5 Video Explainer](https://youtu.be/HiegEfkenXA)
+### Naming
 
-## More Awesome Content
+`title` `speed`.mp4
 
-Do me a big ol' favor and check out these awesome links. I release new video tutorials on full stack development Monday-Thursday @ 10:30 AM ET!
+`title`: Title with spaces, is directly represented in the website title
+`speed`: for example 500 (lower numbers make the playback faster)
 
-* Subscribe to the [DesignCourse YouTube Channel](http://youtube.com/designcourse)
-* Check out the associated website [Coursetro Full Stack Development Training](https://coursetro.com)
-* [Twitter](https://twitter.com/designcoursecom)
-* [Facebook](https://facebook.com/coursetro)
+### Playback
 
-Enjoy!
+https://core-scroll.netlify.com/#`videoname`
+
+`videoname`: Name of video file without .mp4
+
+> **Note:**
+> The URL gets maybe automaticly converted by the browser from `https://core-scroll.netlify.com/#Test Title 500` to the URL `https://core-scroll.netlify.com/#Test%20Title%20500` without spaces.
+> Both work exactly the same

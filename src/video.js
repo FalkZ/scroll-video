@@ -42,6 +42,9 @@ const load = () => {
   if (videos[name]) {
     const vid = document.createElement('video');
 
+    vid.setAttribute('autobuffer', true);
+    vid.setAttribute('preload', true);
+
     vid.src = videos[name];
 
     vid.id = 'v0';

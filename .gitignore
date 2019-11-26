@@ -1,5 +1,7 @@
 .cache
 .vscode
-dist/*
-!dist/test
+dist/
 node_modules
+
+
+!dist/test/

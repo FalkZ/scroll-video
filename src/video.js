@@ -4,7 +4,7 @@ import videos from '../videos/*.mp4';
 
 console.log(videos);
 
-const update = (playbackConst) => {
+const update = (playbackConst, vid) => {
   enterView({
     selector: 'section',
     enter: function(el) {
@@ -16,9 +16,9 @@ const update = (playbackConst) => {
     // lower numbers = faster playback
 
     // get page height from video duration
-    setHeight = document.getElementById('set-height'),
-    // select video element
-    vid = document.getElementById('v0');
+    setHeight = document.getElementById('set-height');
+  // select video element
+
   // var vid = $('#v0')[0]; // jquery option
 
   // dynamically set the page height according to video length
@@ -40,10 +40,15 @@ const load = () => {
   const name = decodeURI(window.location.hash.substring(1));
 
   if (videos[name]) {
-    document.getElementById('v0').src = videos[name];
+    const vid = document.createElement('video');
 
+    vid.src = videos[name];
+
+    vid.id = 'v0';
+
+    document.getElementById('v0').replaceWith(vid);
     const arr = name.split(' ');
-    update(Number(arr.pop()));
+    update(Number(arr.pop()), vid);
 
     document.getElementById('title').innerText = arr.join(' ');
   }

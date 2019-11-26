@@ -1,14 +1,24 @@
 body {
-  background-color: #c6d7de;
+  background-color: black;
   font-family: 'Montserrat';
-  padding: 3em;
+  padding: 0;
+  margin: 0;
 }
 
 #v0 {
   position: fixed;
-  bottom: 0;
-  right: 0;
-  width: 70%;
+  top: 0;
+  display: block;
+
+  max-width: 100vw;
+  max-height: 100vh;
+
+  top: 50%;
+
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  margin: 0 auto;
 }
 
 #set-height {

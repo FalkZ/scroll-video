@@ -87,3 +87,15 @@ document.body.onclick = () => {
   document.getElementById('audio').pause();
   document.getElementById('audio').play();
 };
+
+window.onfocus = function() {
+  document.getElementById('audio').pause();
+  document.getElementById('audio').play();
+};
+
+document.getElementById('audio').pause();
+document.getElementById('audio').play();
+
+window.onblur = function() {
+  document.getElementById('audio').pause();
+};

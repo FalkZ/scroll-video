@@ -82,4 +82,8 @@ function openFullscreen() {
   }
 }
 
-document.body.onclick = openFullscreen;
+document.body.onclick = () => {
+  openFullscreen();
+  document.getElementById('audio').pause();
+  document.getElementById('audio').play();
+};

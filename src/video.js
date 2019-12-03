@@ -1,14 +1,14 @@
-import enterView from './sticky';
+import enterView from "./sticky";
 
-import videos from '../videos/*.mp4';
+import videos from "../videos/*.mp4";
 
 console.log(videos);
 
 const update = (playbackConst, vid) => {
   enterView({
-    selector: 'section',
+    selector: "section",
     enter: function(el) {
-      el.classList.add('entered');
+      el.classList.add("entered");
     }
   });
 
@@ -16,14 +16,17 @@ const update = (playbackConst, vid) => {
     // lower numbers = faster playback
 
     // get page height from video duration
-    setHeight = document.getElementById('set-height');
+    setHeight = document.getElementById("set-height");
   // select video element
 
   // var vid = $('#v0')[0]; // jquery option
 
   // dynamically set the page height according to video length
-  vid.addEventListener('loadedmetadata', function() {
-    setHeight.style.height = Math.floor(vid.duration) * playbackConst + 'px';
+
+  let bottom = null;
+  vid.addEventListener("loadedmetadata", function() {
+    setHeight.style.height = Math.floor(vid.duration) * playbackConst + "px";
+    bottom = playbackConst * vid.duration;
   });
 
   // Use requestAnimationFrame for smooth playback
@@ -31,9 +34,23 @@ const update = (playbackConst, vid) => {
     var frameNumber =
       (window.pageYOffset || document.body.scrollTop) / playbackConst;
     vid.currentTime = frameNumber;
+
+    console.log(document.body.scrollTop);
+
+    if (
+      document.body.scrollHeight - document.body.clientHeight ===
+      document.body.scrollTop
+    ) {
+      document.body.scrollTop = 1;
+    } else if (document.body.scrollTop === 0) {
+      document.body.scrollTop =
+        document.body.scrollHeight - document.body.clientHeight - 1;
+    }
+
     window.requestAnimationFrame(scrollPlay);
   }
 
+  document.body.scrollTop = 1;
   window.requestAnimationFrame(scrollPlay);
 };
 
@@ -41,20 +58,20 @@ const load = () => {
   const name = decodeURI(window.location.hash.substring(1));
 
   if (videos[name]) {
-    const vid = document.createElement('video');
+    const vid = document.createElement("video");
 
-    vid.setAttribute('autobuffer', true);
-    vid.setAttribute('preload', true);
+    vid.setAttribute("autobuffer", true);
+    vid.setAttribute("preload", true);
 
     vid.src = videos[name];
 
-    vid.id = 'v0';
+    vid.id = "v0";
 
-    document.getElementById('v0').replaceWith(vid);
-    const arr = name.split(' ');
+    document.getElementById("v0").replaceWith(vid);
+    const arr = name.split(" ");
     update(Number(arr.pop()), vid);
 
-    document.getElementById('title').innerText = arr.join(' ');
+    //document.getElementById("title").innerText = arr.join(" ");
   }
 };
 
@@ -84,18 +101,18 @@ function openFullscreen() {
 
 document.body.onclick = () => {
   openFullscreen();
-  document.getElementById('audio').pause();
-  document.getElementById('audio').play();
+  document.getElementById("audio").pause();
+  document.getElementById("audio").play();
 };
 
 window.onfocus = function() {
-  document.getElementById('audio').pause();
-  document.getElementById('audio').play();
+  document.getElementById("audio").pause();
+  document.getElementById("audio").play();
 };
 
-document.getElementById('audio').pause();
-document.getElementById('audio').play();
+document.getElementById("audio").pause();
+document.getElementById("audio").play();
 
 window.onblur = function() {
-  document.getElementById('audio').pause();
+  document.getElementById("audio").pause();
 };
